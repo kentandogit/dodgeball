@@ -3,7 +3,7 @@ import pygame
 
 class Player:
     velSpeed = 5
-    dashSpeed = 20
+    dashSpeed = 10
     alive = True
 
     def __init__(self, x, y, radius, winWidth, winHeight):
@@ -51,7 +51,6 @@ class Player:
             self.x -= self.vel
 
     def collide(self):
-        print("collide")
         self.alive = False
 
     def draw(self, win):

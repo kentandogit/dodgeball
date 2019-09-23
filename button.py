@@ -48,8 +48,6 @@ class Button():
         font = pygame.font.Font('freesansbold.ttf', 15)
 
         text_image = font.render(text, True, WHITE)
-        print(self.rect)
-        print(text_image.get_rect())
         text_rect = text_image.get_rect(center=self.rect.center)
 
         self.image_normal.blit(text_image, text_rect)
