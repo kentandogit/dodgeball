@@ -10,7 +10,7 @@ pygame.init()
 winWidth = 800
 winHeight = 600
 playerSize = 16
-enemySize = 16
+enemySize = 32
 win = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("Dodge Ball")
 clock = pygame.time.Clock()
