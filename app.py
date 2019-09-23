@@ -11,18 +11,34 @@ winWidth = 800
 winHeight = 600
 playerSize = 16
 enemySize = 32
+bgY = 0
+bgY2 = 0
 win = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("Dodge Ball")
 clock = pygame.time.Clock()
 
 enemySprites = Sprite("assets/fireball.png", 8, 8)
+bgSprite = Sprite("assets/bg2.png", 1, 1)
+bgSprite = bgSprite.sprites[0][0]
+bgY2 = bgSprite.get_height()
 
 
 def reDrawGame():
+    global bgY, bgY2
     win.fill((0, 0, 0, 0))
+    #win.blit(pygame.transform.scale(bgSprite.sprites[0][0],(winWidth,winHeight)), (0, 0))
+    win.blit(bgSprite, (0, bgY))
+    win.blit(bgSprite, (0, bgY2))
+    bgY -= 1
+    bgY2 -= 1
+    if bgY < (bgSprite.get_height() * -1):
+        bgY = bgSprite.get_height()
+    if bgY2 < (bgSprite.get_height() * -1):
+        bgY2 = bgSprite.get_height()
     player.draw(win)
     for en in enemies:
         en.draw(win, player, enemySprites)
+
     pygame.display.update()
 
 def gameOver():
