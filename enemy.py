@@ -69,14 +69,14 @@ class Enemy:
         self.deleteMe = True
 
     def checkColition(self, player):
-        if (self.x) > (player.x + player.radius) or (player.x - player.radius) > (self.x + self.sideLen):
+        if (self.hitbox[0]) > (player.x + player.radius) or (player.x - player.radius) > (self.hitbox[0] + self.hitbox[2]):
             return False
-        if (self.y) > (player.y + player.radius) or (player.y - player.radius) > (self.y + self.sideLen):
+        if (self.hitbox[1]) > (player.y + player.radius) or (player.y - player.radius) > (self.hitbox[1] + self.hitbox[3]):
             return False
         return True
 
     def updateHitBox(self):
-        self.hitbox = (self.x + (self.sideLen * 0.10), self.y + (self.sideLen * 0.1), self.sideLen * 0.8, self.sideLen * 0.80)
+        self.hitbox = (self.x + (self.sideLen * 0.25), self.y + (self.sideLen * 0.25), self.sideLen * 0.5, self.sideLen * 0.5)
 
     def draw(self, win, player, enemySprites):
         self.move()

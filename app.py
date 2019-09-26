@@ -10,7 +10,7 @@ pygame.init()
 winWidth = 800
 winHeight = 600
 playerSize = 16
-enemySize = 32
+enemySize = 64
 bgY = 0
 bgY2 = 0
 win = pygame.display.set_mode((winWidth, winHeight))
